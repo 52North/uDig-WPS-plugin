@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+    	<extension
+         point="net.refractions.udig.catalog.ServiceExtension">
+      <service
+            class="org.n52.wps.client.udig.WPSServiceExtension"
+            id="WPSServiceExtension"/>
+   	</extension>
+ <extension
+       point="net.refractions.udig.catalog.ui.connectionFactory">
+       <factory
+             class="org.n52.wps.client.udig.ui.WPSConnectionFactory"
+             id="org.n52.wps.client.udig.ui.WPSConnectionFactory"/>
+    <wizardPage
+          banner="icons/wizban/wfs_wiz.gif"
+          class="org.n52.wps.client.udig.ui.WPSRegistryWizardPage"
+          description="%wizard.description"
+          icon="icons/etool16/wfs_wiz.gif"
+          id="org.n52.wps.client.udig.ui"
+          name="%wizard.name"/>
+
+ </extension>
+ <extension
+       point="org.eclipse.ui.exportWizards">
+    <wizard
+          class="org.n52.wps.client.udig.export.googleearth.GoogleEarthExporter"
+          icon="icons/kmlIcon.jpg"
+          id="org.n52.wps.client.udig.export.googleearth.GoogleEarthExporter"
+          name="WPS GoogleEarth Export">
+    <description>
+            %wizard.googleExport
+    </description> 
+    </wizard>
+ </extension>
+ </plugin>
